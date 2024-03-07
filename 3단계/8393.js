@@ -4,8 +4,8 @@ const env = process.platform === "linux" ? "dev/stdin" : "test.txt";
 
 let input = Number(fs.readFileSync(env));
 
-function solution( a ) {
-  console.log((a *(a+1))/2)
+function solution(a) {
+  console.log((a * (a + 1)) / 2);
 }
 
-solution(input)
+solution(input);
