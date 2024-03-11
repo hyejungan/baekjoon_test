@@ -6,7 +6,6 @@ let input = fs.readFileSync(env).toString().split("\n");
 
 const [N, M] = input[0].split(" ").map(Number);
 const baskets = new Array(N).fill(0);
-console.log(baskets);
 
 for (let i = 1; i <= M; i++) {
   const [start, end, ball] = input[i].split(" ").map(Number);
