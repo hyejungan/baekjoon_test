@@ -2,8 +2,8 @@ const fs = require("fs");
 
 const env = process.platform === "linux" ? "dev/stdin" : "test.txt";
 
-let input = fs.readFileSync(env).toString().split("\n").map(Number);
-const newArray = [];
+let input = fs.readFileSync(env).toString().trim().split("\n").map(Number);
+let newArray = [];
 
 input.forEach((n) => {
   const num = n % 42;
@@ -11,6 +11,7 @@ input.forEach((n) => {
   if(newArray.indexOf(num) === -1) {
     newArray.push(num)
   }
-})
+});
 
-console.log(newArray.length);
+console.log(String(newArray.length));
+
