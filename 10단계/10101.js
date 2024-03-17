@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const env = process.platform === "linux" ? "dev/stdin" : "test.txt";
 
-let [a, b, c] = fs.readFileSync(env).toString().trim().split("\n").map(Number);
+let [a, b, c] = fs.readFileSync(env).toString().trim().split("\n");
 
 if (a + b + c === 180) {
   if (a == 60 && b == 60 && c == 60) {
