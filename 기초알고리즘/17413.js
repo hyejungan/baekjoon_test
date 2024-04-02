@@ -1,16 +1,27 @@
 const fs = require("fs");
 const env = process.platform === "linux" ? "/dev/stdin" : "test.txt";
 
-let input = fs.readFileSync(env, "utf8").trim().split('>')
+let input = fs.readFileSync(env, "utf8").trim();
 
+let tag = false;
+let ans = "";
+let temp = "";
 
-input.reduce((acc, item) => {
-  if(item[0] !== '<' && item.includes('<')) {
-    acc.push(item.slice(0, item.indexOf('<')));
-    acc.push(item.slice(item.indexOf('<')))
+for (let a of input) {
+  if (a === "<") {
+    tag = true;
+    ans += temp.split("").reverse().join("") + a;
+    temp = "";
+  } else if (a === ">") {
+    tag = false;
+    ans += temp + a;
+    temp = "";
+  } else if (a === " ") {
+    ans += (!tag ? temp.split("").reverse().join("") : temp) + " ";
+    temp = "";
   } else {
-    acc.push(item)
+    temp += a;
   }
-  console.log(acc)
-  return acc
-}, [])
+}
+
+console.log(ans + temp.split("").reverse().join(""));
