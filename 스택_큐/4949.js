@@ -32,4 +32,4 @@ strings.forEach((string) => {
   }
 })
 
-console.log(result.join('\n'))
+console.log(result.join('\n'));
